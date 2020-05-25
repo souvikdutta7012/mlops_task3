@@ -18,7 +18,7 @@ model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 
 
 f=open("requirement.txt","r+")
-epoch=int((f.readline())
+epoch=f.readline()
 f.close()
 
 
@@ -41,7 +41,7 @@ validation_generator = test_datagen.flow_from_directory(
 history=model.fit(
         train_generator,
         steps_per_epoch=1,
-        epochs=epoch,
+        epochs=int(epoch),
         validation_data=validation_generator,
         validation_steps=800)
 
